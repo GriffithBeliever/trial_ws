@@ -1,0 +1,12 @@
+environments:
+- name: trial
+  provider: ecs
+service:
+  name: chat
+  port: 8080
+  pathPatterns:
+  - /*
+  pipeline:
+    source:
+      provider: GitHub
+      repo: GriffithBeliever/trial_ws

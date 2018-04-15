@@ -1,12 +1,18 @@
 environments:
-- name: trial
-  provider: ecs
+  - name: trial
+    provider: ecs
 service:
   name: chat
+  desiredCount: 2
   port: 8080
+  healthEndpoint: /
   pathPatterns:
   - /*
   pipeline:
     source:
       provider: GitHub
       repo: GriffithBeliever/trial_ws
+    acceptance:
+      environment: trial
+    production:
+      disabled: true
